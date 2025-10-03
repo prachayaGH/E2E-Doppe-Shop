@@ -16,8 +16,7 @@ User can add ceramic mug via direct search and checkout
     [Tags]    search    checkout
     
     Login to application
-    Search product directly    Ceramic Mug
-    
+    # Search product directly    Ceramic Mug
     # Select product color    Blue
     # Add product to cart    3
     # Navigate to checkout

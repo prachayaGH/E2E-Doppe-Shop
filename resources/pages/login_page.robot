@@ -6,7 +6,7 @@ Resource         ../variables.robot
 *** Keywords ***
 Login to application
     [Documentation]    Login with username and password (handles shadow DOM)
-    Wait Until Page Contains Element    css=${LOGIN_SHADOW_HOST}    timeout=15s
+    Wait Until Page Contains Element    css=${LOGIN_SHADOW_HOST}    timeout=10s
     ${host}=    Get WebElement    css=${LOGIN_SHADOW_HOST}
 
     # หา input email โดยตรงจาก shadow root

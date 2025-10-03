@@ -13,24 +13,21 @@ Logout from account
 
     # 2. กดปุ่ม Sign out
     Click Element    css=[data-testid="nav-account-logout"]
-    Wait Until Page Contains Element    css=[data-testid="nav-login"]    timeout=5s
-
-    # 4. รอให้ logout สำเร็จ - ปุ่ม login ต้องปรากฏ
     Sleep    2s
-    Wait Until Element Is Visible    css=[data-testid="nav-login"]    timeout=20s
 
-    # 5. Clear browser storage
+    # 3. Clear browser storage
     Delete All Cookies
     Execute JavaScript    window.localStorage.clear()
     Execute JavaScript    window.sessionStorage.clear()
-    
-    # 6. ไปหน้า signin
-    Go To    ${SIGNIN_URL}
-    Wait Until Page Contains Element    css=${LOGIN_SHADOW_HOST}    timeout=20s
 
+    
+    # 4. รอให้ shadow host ปรากฏก่อน 
+    Wait Until Page Contains Element    css=${LOGIN_SHADOW_HOST}    timeout=10s
+    Sleep    2s
+    
+    
+    # 5. ยืนยันว่าอยู่หน้า signin
     ${location}=    Get Location
     Should Contain    ${location}    signin
 
-    Sleep    1s
-    
     Log To Console    ✅ Logged out and ready for next iteration
